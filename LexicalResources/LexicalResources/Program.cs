@@ -218,7 +218,7 @@ namespace LexicalResources
             vDaleThesaurus = new ThesaurusVanDale(@"C:\Users\ThijsWizeNoze\Documents\Data\VanDale\20140623\Sample_Thesaurus\thesaurus_E.xml");
             vDaleThesaurus.AddMainEntryHyponyms();
             //vDale.Stem();
-            MWO = new ThesaurusMijnWoordenboekOnline(@"C:\Users\ThijsWizeNoze\Documents\Data\MijnWoordenBoekOnlineSynoniemen.txt");
+            MWO = new ThesaurusMijnWoordenboekOnline(@"C:\Users\ThijsWizeNoze\Documents\Data\SynoniemenMijnWoordenboekTermOnly.txt");
             //MWO.Stem();
         }
 
