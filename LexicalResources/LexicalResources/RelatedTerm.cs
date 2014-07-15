@@ -8,14 +8,17 @@ namespace LexicalResources
 {
     public class RelatedTerm
     {
-        public RelatedTerm(string term,string label, bool isMain)
+        public RelatedTerm(string term, int senseNr, string label, bool isMain)
         {
             this.Term = term;
             this.Label = label;
-            this.IsMain = IsMain;
+            this.SenseNr = senseNr;
+            this.IsMain = isMain;
         }
 
         public string Term;
+
+        public int SenseNr;
 
         public string Label;
 

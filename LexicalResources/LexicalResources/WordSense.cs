@@ -63,12 +63,18 @@ namespace LexicalResources
             sb.Append(SenseNr+"\t");
             if(!string.IsNullOrEmpty(PartOfSpeech)) {sb.AppendFormat("[{0}] ", PartOfSpeech); }
             sb.AppendFormat("{0}", string.IsNullOrEmpty(synonymString) ? "[geen synoniemen]":synonymString);
-            if (!string.IsNullOrEmpty(kapsString)) { sb.AppendFormat("; ", kapsString); }
-            sb.AppendLine();
-            if(!string.IsNullOrEmpty(associativeString)) { sb.AppendFormat("&#8776;\t{0}\n", associativeString);}
-            if (!string.IsNullOrEmpty(antonymString)) { sb.AppendFormat("&#9668;&#9658;\t{0}\n", antonymString); }
-            if (!string.IsNullOrEmpty(hyponymString)) { sb.AppendFormat("&#9660;\t{0}\n", hyponymString); }
-            if (!string.IsNullOrEmpty(hyperonymString)) { sb.AppendFormat("&#9650;\t{0}\n", hyperonymString); }
+            sb.AppendLine(); 
+            if (!string.IsNullOrEmpty(kapsString)) { sb.AppendFormat("\t{0}\n", kapsString); }
+            //if(!string.IsNullOrEmpty(associativeString)) { sb.AppendFormat("&#8776;\t{0}\n", associativeString);}
+            //if (!string.IsNullOrEmpty(antonymString)) { sb.AppendFormat("&#9668;&#9658;\t{0}\n", antonymString); }
+            //if (!string.IsNullOrEmpty(hyponymString)) { sb.AppendFormat("&#9660;\t{0}\n", hyponymString); }
+            //if (!string.IsNullOrEmpty(hyperonymString)) { sb.AppendFormat("&#9650;\t{0}\n", hyperonymString); }
+
+            if (!string.IsNullOrEmpty(associativeString)) { sb.AppendFormat("~\t{0}\n", associativeString); }
+            if (!string.IsNullOrEmpty(antonymString)) { sb.AppendFormat("<>\t{0}\n", antonymString); }
+            if (!string.IsNullOrEmpty(hyponymString)) { sb.AppendFormat("V\t{0}\n", hyponymString); }
+            if (!string.IsNullOrEmpty(hyperonymString)) { sb.AppendFormat("^\t{0}\n", hyperonymString); }
+
             return sb.ToString();
         }
     }

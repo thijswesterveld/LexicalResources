@@ -24,7 +24,7 @@ namespace LexicalResources
                 synonyms.Type = RelationType.Synonym;
                 for (int i = 1; i < fields.Length;++i)
                 {
-                    synonyms.Terms.Add(new RelatedTerm(fields[i],null,false));
+                    synonyms.Terms.Add(new RelatedTerm(fields[i],0, null,false));
                 }
                 sense.TermRelations.Add(synonyms);
                 entry.Senses.Add(sense);

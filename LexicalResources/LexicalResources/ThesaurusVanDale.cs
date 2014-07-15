@@ -105,6 +105,45 @@ namespace LexicalResources
             EndEntry();
         }
 
+        /// <summary>
+        /// Van Dale lists hyponyms only with the most common term in a synset. 
+        /// This method adds hyponyms for the less common terms, by copying the information from the common terms
+        /// </summary>
+        public void AddMainEntryHyponyms()
+        {
+            foreach(ThesaurusEntry entry in thesaurus.Values)
+            {
+                foreach(WordSense sense in entry.Senses)
+                {
+                    if(sense.TermRelations.Count(t => t.Type == RelationType.Hyponym) ==0)
+                    {
+                        var synonyms = sense.TermRelations.Where(t => t.Type == RelationType.Synonym).Select(t => t.Terms).FirstOrDefault();
+                        if(synonyms != null)
+                        {
+                            var mainTerm  = synonyms.Where(s => s.IsMain).FirstOrDefault();
+                            if(mainTerm != null)
+                            {
+                                ThesaurusEntry mainEntry;
+                                if(thesaurus.TryGetValue(mainTerm.Term,out mainEntry))
+                                {
+                                    WordSense mainSense = mainEntry.Senses.Where(s => s.SenseNr == mainTerm.SenseNr).FirstOrDefault();
+                                    if(mainSense != null)
+                                    {
+                                        foreach (var hyponyms in mainSense.TermRelations.Where(r => r.Type == RelationType.Hyponym))
+                                        {
+                                            sense.TermRelations.Add(hyponyms);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+
         private void StartEntry(string term)
         {
             EndEntry();
@@ -145,7 +184,13 @@ namespace LexicalResources
         private void StartTerm(XElement element)
         {
             EndTerm();
-            rt = new RelatedTerm(GetMainEntry(element),null,element.Name.LocalName == "centr");
+            int senseNr = 0;
+            var sup = element.XPathSelectElement("./sup");
+            if(sup != null)
+            {
+                senseNr = int.Parse(sup.Value);
+            }
+            rt = new RelatedTerm(GetMainEntry(element),senseNr,null,element.Name.LocalName == "centr");
         }
 
         private void EndTerm()

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +16,7 @@ namespace LexicalResources
             Terms = new List<RelatedTerm>();
         }
 
+        [JsonConverter(typeof(StringEnumConverter))]
         public RelationType Type;
 
         public string Nuance;

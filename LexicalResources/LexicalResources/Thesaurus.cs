@@ -48,5 +48,25 @@ namespace LexicalResources
             }
             return entry;
         }
+
+        public string ToJson()
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (ThesaurusEntry entry in thesaurus.Values)
+            {
+                sb.AppendLine(entry.ToJson());
+            }
+            return sb.ToString();
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach(ThesaurusEntry entry in thesaurus.Values)
+            {
+                sb.AppendLine(entry.ToString());
+            }
+            return sb.ToString();
+        }
     }
 }

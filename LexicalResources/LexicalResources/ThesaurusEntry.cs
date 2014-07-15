@@ -25,7 +25,7 @@ namespace LexicalResources
             sb.AppendLine(Term);
             foreach(WordSense sense in Senses)
             {
-                sb.AppendLine(sense.ToString());
+                sb.Append(sense.ToString());
             }
             return sb.ToString();
         }
