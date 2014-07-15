@@ -8,7 +8,7 @@ namespace LexicalResources
 {
     public class WordSense
     {
-        public WordSense(int senseNr, string lemma, string definition, string partOfSpeech)
+        public WordSense(string lemma, int senseNr=0, string definition=null, string partOfSpeech=null)
         {
             this.SenseNr = senseNr;
             this.Lemma = lemma;

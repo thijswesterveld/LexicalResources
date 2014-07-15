@@ -25,7 +25,7 @@ namespace LexicalResources
                     entry = new ThesaurusEntry(term);
                     thesaurus.Add(term, entry);
                 }
-                WordSense sense = new WordSense(1, term, null, null);
+                WordSense sense = new WordSense(term);
                 Relation synonyms = new Relation();
                 synonyms.Type = RelationType.Synonym;
                 for (int i = 1; i < fields.Length;++i)

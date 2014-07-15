@@ -28,14 +28,7 @@ namespace LexicalResources
                 StartEntry(term);
                 foreach(var betekenis in lemma.XPathSelectElements(".//bet"))
                 {
-                    string betNr = betekenis.XPathSelectElement("./betnr").Value;
-                    string pos = null ;
-                    var gramt = betekenis.XPathSelectElement("./gramt");
-                    if(gramt != null)
-                    {
-                        pos = gramt.Value;
-                    }
-                    StartWordSense(int.Parse(betNr), term, "", pos);
+                    StartWordSense(term);
 
                     foreach(var element in betekenis.XPathSelectElements("./*"))
                     {
@@ -93,7 +86,10 @@ namespace LexicalResources
                                 }
                                 break;
                             case "gramt":
+                                sense.PartOfSpeech = element.Value;
+                                break;
                             case "betnr":
+                                sense.SenseNr = int.Parse(element.Value);
                                 break;
                             default:
                                 Console.WriteLine("Unknown element: {0}", element.Name.LocalName);
@@ -207,10 +203,10 @@ namespace LexicalResources
             rt = null;
         }
 
-        private void StartWordSense(int senseNr, string lemma, string definition, string pos)
+        private void StartWordSense(string lemma)
         {
             EndWordSense();
-            sense = new WordSense(senseNr, lemma, definition, pos);
+            sense = new WordSense(lemma);
         }
 
         private void EndWordSense()
