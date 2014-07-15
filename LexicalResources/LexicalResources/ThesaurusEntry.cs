@@ -11,18 +11,18 @@ namespace LexicalResources
     {
         public ThesaurusEntry(string term)
         {
-            Term = term;
+            Lemma = term;
             Senses = new List<WordSense>();
         }
 
-        public string Term;
+        public string Lemma;
         
         public List<WordSense> Senses;
 
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine(Term);
+            sb.AppendLine(Lemma);
             foreach(WordSense sense in Senses)
             {
                 sb.Append(sense.ToString());

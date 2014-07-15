@@ -255,7 +255,7 @@ namespace LexicalResources
             List<string> vDaleSynonyms;
             foreach (var lemma in vDaleThesaurus.thesaurus)
             {
-                string term = lemma.Value.Term;
+                string term = lemma.Value.Lemma;
                 vDaleSynonyms = Flatten(lemma.Value);
                 ThesaurusEntry MWOentry;
                 if (MWO.thesaurus.TryGetValue(lemma.Key, out MWOentry))
@@ -273,7 +273,7 @@ namespace LexicalResources
             }
             foreach (var lemma in MWO.thesaurus)
             {
-                string term = lemma.Value.Term;
+                string term = lemma.Value.Lemma;
                 if (term.StartsWith("e"))
                 {
                     // only MWO has this term

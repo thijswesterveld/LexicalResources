@@ -151,7 +151,7 @@ namespace LexicalResources
             EndWordSense();
             if (entry != null)
             {
-                thesaurus.Add(entry.Term, entry);
+                thesaurus.Add(entry.Lemma, entry);
                 entry = null;
             }
         }
