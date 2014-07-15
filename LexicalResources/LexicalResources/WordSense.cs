@@ -29,15 +29,6 @@ namespace LexicalResources
 
         public List<Relation> TermRelations;
 
-        public int Synonymcount
-        {
-            get
-            {
-                return GetSynonyms().Count();
-            }
-        }
-
-      
         public HashSet<string> GetSynonyms()
         {
             HashSet<string> synonyms = new HashSet<string>();

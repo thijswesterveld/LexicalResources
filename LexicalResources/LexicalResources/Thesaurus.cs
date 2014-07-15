@@ -1,4 +1,5 @@
-﻿using NLP;
+﻿using Newtonsoft.Json;
+using NLP;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,6 +14,12 @@ namespace LexicalResources
     public class Thesaurus
     {
         internal Dictionary<string, ThesaurusEntry> thesaurus = new Dictionary<string, ThesaurusEntry>();
+
+        public static JsonSerializerSettings JsonSettings = new JsonSerializerSettings()
+        { 
+            NullValueHandling = NullValueHandling.Ignore,
+            Formatting = Formatting.Indented,
+        };
 
         public Thesaurus()
         {
@@ -51,12 +58,8 @@ namespace LexicalResources
 
         public string ToJson()
         {
-            StringBuilder sb = new StringBuilder();
-            foreach (ThesaurusEntry entry in thesaurus.Values)
-            {
-                sb.AppendLine(entry.ToJson());
-            }
-            return sb.ToString();
+            
+            return JsonConvert.SerializeObject(thesaurus.Values,JsonSettings);
         }
 
         public override string ToString()

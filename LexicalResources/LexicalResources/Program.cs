@@ -18,7 +18,7 @@ namespace LexicalResources
             
             InitThesauri();
 
-            ExportThesaurus(vDaleThesaurus, @"C:\Users\ThijsWizeNoze\Documents\Data\VanDale\VanDaleSynonymList.txt");
+            ExportThesaurus(vDaleThesaurus, @"C:\Users\ThijsWizeNoze\Documents\Data\VanDale\VanDaleSynonymList");
 
         //    FrogTest();
 
@@ -35,18 +35,27 @@ namespace LexicalResources
 
         private static void ExportThesaurus(Thesaurus thesaurus, string outputFile)
         {
-            TextWriter stemResult = new StreamWriter(outputFile);
+            TextWriter txt = new StreamWriter(outputFile +".txt");
+            txt.WriteLine(thesaurus.ToString());
+            txt.Flush();
+            txt.Close();
+
+            TextWriter json = new StreamWriter(outputFile +".json");
+            json.WriteLine(thesaurus.ToJson());
+            json.Flush();
+            json.Close();
+            TextWriter synonymList= new StreamWriter(outputFile +".tsv");
          
             foreach (var lemma in thesaurus.thesaurus)
             {
                 foreach (var sense in lemma.Value.Senses)
                 {
                     string synonyms = string.Join("\t", sense.GetSynonyms());
-                    stemResult.WriteLine("{0}\t{1}", lemma.Key, synonyms);
+                    synonymList.WriteLine("{0}\t{1}", lemma.Key, synonyms);
                 }
             }
-            stemResult.Flush();
-            stemResult.Close();
+            synonymList.Flush();
+            synonymList.Close();
         }
 
         private static void TestStemmer()

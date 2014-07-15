@@ -32,7 +32,7 @@ namespace LexicalResources
 
         public string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return JsonConvert.SerializeObject(this, Thesaurus.JsonSettings);
         }
 
         public List<HashSet<string>> GetSynonyms()
