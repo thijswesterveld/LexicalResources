@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LexicalResources", "LexicalResources\LexicalResources.csproj", "{AD36703B-5DFC-40EC-A827-5472ED3B9B41}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frog", "Frog\Frog.csproj", "{EE9CFB2C-482B-4F08-8D3B-9358D931B9B5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{AD36703B-5DFC-40EC-A827-5472ED3B9B41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD36703B-5DFC-40EC-A827-5472ED3B9B41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD36703B-5DFC-40EC-A827-5472ED3B9B41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE9CFB2C-482B-4F08-8D3B-9358D931B9B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE9CFB2C-482B-4F08-8D3B-9358D931B9B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE9CFB2C-482B-4F08-8D3B-9358D931B9B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE9CFB2C-482B-4F08-8D3B-9358D931B9B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

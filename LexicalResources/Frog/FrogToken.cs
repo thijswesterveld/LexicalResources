@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LexicalResources
+namespace Frog
 {
     public class FrogToken :  IEquatable<FrogToken>
     {

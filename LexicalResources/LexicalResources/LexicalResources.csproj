@@ -61,7 +61,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Thesaurus.cs" />
     <Compile Include="ThesaurusVanDale.cs" />
-    <Compile Include="FrogToken.cs" />
     <Compile Include="Woordenboek.cs" />
     <Compile Include="WoordenboekFreqList.cs" />
     <Compile Include="WoordenboekVanDale.cs" />
@@ -69,6 +68,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Frog\Frog.csproj">
+      <Project>{ee9cfb2c-482b-4f08-8d3b-9358d931b9b5}</Project>
+      <Name>Frog</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
